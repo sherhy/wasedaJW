@@ -1,4 +1,4 @@
-import requests, bs4
+import requests, bs4, re
 import pymongo
 client = pymongo.MongoClient('mongodb://localhost:27017/')
 db = client.sils
