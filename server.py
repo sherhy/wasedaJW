@@ -1,20 +1,43 @@
-from flask import Flask, render_template
-import syllabusDAO
-import pymongo
-
-
-app = Flask(__name__)
-
-@app.route('/')
-def index(creators = ["alexia","rebekah","jin"]):
-	#landing page
-	return render_template('index.html', creators=creators)
-
-#TODO: run syllabusCrawl.py twice a year
-	#TODO: complete a syllabusCrawl that inputs into a DB format with the schema:
+from flask import Flask, render_template, flash, redirect, url_for
+from coursesDAO import CoursesDAO
+import pymongo, random
 
 client = pymongo.MongoClient('mongodb://localhost:27017/')
 db = client.sils
-courses = coursesDAO.CoursesDAO(db)
+courses = CoursesDAO(db)
+app = Flask(__name__)
 
-courses.insert_entry("1234m123b", "course title", "other bs")
+@app.route('/')
+def index():
+	return redirect(url_for('classinfo'))
+
+@app.route("/course_not_found")
+def course_not_found():
+	return render_template('notFound.html')
+
+def randomKey():
+	keys = [d["_id"] for d in courses.get_courses()]
+	return random.choice(keys)
+
+@app.route('/classinfo')
+@app.route('/classinfo/<permalink>')
+def classinfo(permalink=randomKey()):
+
+	print ("about to query on permalink = ", permalink)
+	course = courses.get_course_by_permalink(permalink)
+
+	if course is None:
+		redirect(url_for("/course_not_found"))
+
+	# init comment form fields for additional comment
+	comment = {'name': "", 'body': "", 'email': ""}
+	return render_template('classInfoPage.html', course=course)
+
+@app.route('/courselist')
+def courselist():
+	l = courses.get_courses()
+	return render_template("courseList.html", courses=l)
+
+@app.route('/about')
+def about():
+	return render_template('developers.html', creators = ["alexia","rebekah","jin"])

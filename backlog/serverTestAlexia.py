@@ -1,9 +1,9 @@
 from flask import Flask, render_template
-import seed
+from db.seed import course
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-	return render_template('ClassInfoPage_1.2.htm', course = seed.course)
+	return render_template('ClassInfoPage.html', course = course)

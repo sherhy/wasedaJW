@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block title %}Index{% endblock %}
+{% block head %}{{ super() }}{% endblock %}
+{% block content %}
+<div class="page-container">			
+	<div id="details">
+		<h2>Bought to you by {% for creator in creators %} {{ creator }}{% endfor %}!</h2>
+	</div>
+</div>
+{% endblock %}

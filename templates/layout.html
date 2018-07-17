@@ -1,0 +1,27 @@
+<!doctype html>
+	<head>
+		{% block head %}
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<title>{% block title %}{% endblock %} - Waseda JW</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<link rel="stylesheet" href="{{ url_for('static', filename='stylesheet.css') }}">
+		{% endblock %}
+	</head>
+
+	<body>
+		<div class="topnav">
+			<a class="active" href="/">Waseda JW</a>
+			<a href="timetable.html">Timetable</a>
+			<a href="/courselist">Courses</a>
+			<a href="/about">Developers' Info</a>
+			<input type="text" placeholder="Search..">
+		</div>
+
+		<div id="content">{% block content %}{% endblock %}</div>
+
+		<div class="footer" style="position: fixed;left: 0;bottom: 0;">&copy; Copyright 2018 by WasedaJW.</div>
+		
+	</body>
+	{% block script %}{% endblock %}

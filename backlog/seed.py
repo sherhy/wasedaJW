@@ -22,19 +22,19 @@ course = {
 
 *Students will be assigned to a class based on their answers to a questionnaire on writing experience together with the results of the TOEFL-ITP test for English placement which is taken before the start of their first semester at SILS.""",
 
-	"objectives": """・ Students will understand advanced academic essay requirements, and will learn to take an appropriate position, and argue and support it in an argumentative essay.
-・ Students will acquire grammar and expressions which are more sophisticated and appropriate for academic essays.
-・ Students will practice skills to use information from outside sources (source evaluation, in-text citation and reference lists) so that they can support their arguments more clearly and logically in writing.
-・ Students will improve skills to edit their own writing through feedback from the instructor and peers.""",
-	"Textbooks": """Academic Writing Skills Student’s Book 3 by Chin, Reid, Wray, Yamazaki (Cambridge: Cambridge University Press, 2013)
+	"objectives": """ Students will understand advanced academic essay requirements, and will learn to take an appropriate position, and argue and support it in an argumentative essay.
+ Students will acquire grammar and expressions which are more sophisticated and appropriate for academic essays.
+ Students will practice skills to use information from outside sources (source evaluation, in-text citation and reference lists) so that they can support their arguments more clearly and logically in writing.
+ Students will improve skills to edit their own writing through feedback from the instructor and peers.""",
+	"Textbooks": """Academic Writing Skills Student's Book 3 by Chin, Reid, Wray, Yamazaki (Cambridge: Cambridge University Press, 2013)
 ISBN: 9781107611931""",
 	"evaluation": """Rate	Evaluation Criteria
-Papers:	70％	Essay Thesis & Outline (5%)
+Papers:	70%	Essay Thesis & Outline (5%)
 Essay Body Paragraphs 1 and 2 (10%)
 Remaining Essay Body Paragraphs (5%)
 Essay Introductory & Concluding Paragraphs (10%)
 Final Essay Grading (40%)
-Class Participation:	20％	Participation and Preparation
-Others:	10％	Source Evaluation Task"""
+Class Participation:	20%	Participation and Preparation
+Others:	10%	Source Evaluation Task"""
 
 }

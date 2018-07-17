@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block title %}Course List{% endblock %}
+{% block head %}{{ super() }}{% endblock %}
+{% block content %}
+<div class="page-container">
+	<h1>Course Title: </h1>
+	<h4>{% for course in courses%}
+		<a href="/classinfo/{{course["_id"]}}">{{course["title"]}} <br>
+	{% endfor %}</h4>
+</div>
+{% endblock %}
