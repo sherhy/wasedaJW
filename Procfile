@@ -1,1 +1,1 @@
-web: gunicorn wasedaJW:server
+web: gunicorn server:app
