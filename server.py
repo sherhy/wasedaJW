@@ -1,8 +1,9 @@
 from flask import Flask, render_template, flash, redirect, url_for
 from coursesDAO import CoursesDAO
+from db.secret import secretkey
 import pymongo, random
 
-client = pymongo.MongoClient('mongodb://localhost:27017/')
+client = pymongo.MongoClient(secretkey)
 db = client.sils
 courses = CoursesDAO(db)
 app = Flask(__name__)

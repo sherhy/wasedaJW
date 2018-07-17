@@ -1,3 +1,5 @@
 .DS_Store
-db/bin/
 *.pyc
+test*
+db/bin/
+db/sercret*

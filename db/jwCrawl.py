@@ -1,15 +1,18 @@
-import requests, bs4, re
-import pymongo
-client = pymongo.MongoClient('mongodb://localhost:27017/')
+import requests, bs4, re, pymongo
+from secret import secretkey
+client = pymongo.MongoClient(secretkey)
 db = client.sils
 courses = db.courses
 
 #TODO: import the whole keys.txt as list
-keys = [
-	'210CM20100012018210CM2010021',
-	'210CM40200012018210CM4020021',
-	'210CO10200012018210CO1020021',
-]
+# keys = [
+# 	'210CM20100012018210CM2010021',
+# 	'210CM40200012018210CM4020021',
+# 	'210CO10200012018210CO1020021',
+# ]
+with open("keys.txt") as d:
+	keys = list(filter(lambda k: k!="", d.read().split('\n')))
+
 values = {
 	'url':'url',
 	'Evaluation Criteria':'evaluation',
