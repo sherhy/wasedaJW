@@ -1,11 +1,11 @@
-#Python 2.7.10
-#dnspython==1.15.0  
-
 #Python 3.6.2
 beautifulsoup4==4.6.0
 Flask==1.0.2
 Jinja2==2.10
 pymongo==3.6.1
+requests==2.18.4
+gunicorn==19.9.0
+#dnspython==1.15.0
 
 #js
 #phantomjs=2.1.1
