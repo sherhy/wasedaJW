@@ -9,4 +9,4 @@ pymongo==3.6.1
 dnspython-1.15.0
 
 #js
-phantomjs=2.1.1
+#phantomjs=2.1.1
