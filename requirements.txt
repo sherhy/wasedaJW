@@ -5,7 +5,7 @@ Jinja2==2.10
 pymongo==3.6.1
 requests==2.18.4
 gunicorn==19.9.0
-#dnspython==1.15.0
+dnspython==1.15.0
 
 #js
 #phantomjs=2.1.1
