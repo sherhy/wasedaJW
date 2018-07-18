@@ -5,13 +5,13 @@ db = client.sils
 courses = db.courses
 
 #TODO: import the whole keys.txt as list
-# keys = [
-# 	'210CM20100012018210CM2010021',
-# 	'210CM40200012018210CM4020021',
-# 	'210CO10200012018210CO1020021',
-# ]
-with open("keys.txt") as d:
-	keys = list(filter(lambda k: k!="", d.read().split('\n')))
+keys = [
+	'210CM20100012018210CM2010021',
+	'210CM40200012018210CM4020021',
+	'210CO10200012018210CO1020021',
+]
+# with open("db/keys.csv") as d:
+# 	keys = list(filter(lambda k: k.strip()!="", d.read().split(',')))
 
 values = {
 	'url':'url',
@@ -42,7 +42,6 @@ values = {
 }
 url = 'https://www.wsl.waseda.jp/syllabus/JAA104.php'
 
-
 for pKey in keys:
 	course = dict()
 	res  = requests.post(url+"?pLng=en&pKey="+pKey)
@@ -63,10 +62,9 @@ for pKey in keys:
 				course[category] += line.strip()	
 			else: 
 				course[category] = line.strip()
-		course["_id"]=pKey
-		course["url"]=url+"?pLng=en&pKey="+pKey
-		# tdp = course["tdp"].split(' ')
-		# print (tdp)
+	course["_id"]=pKey
+	course["url"]=url+"?pLng=en&pKey="+pKey
+	course["period"] = tdpReplace(course["tdp"])
 	try:
 		courses.insert_one(course)
 	except:

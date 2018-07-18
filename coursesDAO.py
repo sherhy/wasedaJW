@@ -38,10 +38,7 @@ class CoursesDAO:
 		cursor = self.courses.find({},{"_id":1, "title":1})
 		l = []
 		for course in cursor:
-			l.append({
-				'_id':course['_id'],
-				'title':course['title']
-			})
+			l.append(course)
 		return l
 
 	def get_course_by_permalink(self, permalink):
