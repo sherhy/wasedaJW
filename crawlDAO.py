@@ -1,13 +1,10 @@
 import subprocess
-import requests, bs4, re, pymongo
-from db.secret import secretkey
-
-client = pymongo.MongoClient(secretkey)
-db = client.sils
-courses = db.courses
+import requests, bs4, re
 
 class CrawlDAO:
-	def __init__(self):
+	def __init__(self, db):
+		self.db = db
+		self.courses = db.courses
 		self.values = {
 			'url':'url',
 			'Evaluation Criteria':'evaluation',

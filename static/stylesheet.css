@@ -17,6 +17,9 @@ th, td {
 tr{
 	border-left: 1px solid #ddd;
 }
+.main {
+	margin-bottom: 15px;
+}
 
 .page-container{
 	margin: auto 10%;
@@ -42,6 +45,9 @@ tr{
 .topnav {
 	background-color: #333;
 	overflow: hidden;
+	position: fixed;
+	top: 0;
+	width: 100%;
 }
 
 /* Style the links inside the navigation bar */
