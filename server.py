@@ -39,6 +39,10 @@ def courselist():
 	l = courses.get_courses()
 	return render_template("courseList.html", courses=l)
 
+@app.route('/timetable')
+def timetable():
+	return render_template("timeTable.html")
+
 @app.route('/about')
 def about():
 	return render_template('developers.html', creators = ["alexia","rebekah","jin"])

@@ -1,22 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Timetable - Waseda JW</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
-
-<body>
-	<div class="topnav">
-	  <a class="active" href="#home">Waseda JW</a>
-	  <a href="#news">Timetable</a>
-	  <a href="#contact">Courses</a>
-	  <a href="#about">Developers' Info</a>
-	  <input type="text" placeholder="Search..">
-	</div>
-
+{% extends "layout.html" %}
+{% block title %}Timetable{% endblock %}
+{% block head %}{{ super() }}{% endblock %}
+{% block content %}
+<div class="page-container">
 	<div class="semesterInfo">
 		Current Semester: 
 		<span id="currentSemester"></span>
@@ -120,5 +106,8 @@
 				</li>
 			</ul>
 		</span>
+		<button id="export">Export schedule</button>
 	</div>
-</body>
+
+</div>
+{% endblock %}
