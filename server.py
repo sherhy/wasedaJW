@@ -11,7 +11,7 @@ def index():
 	if "_id" in session:
 		pass
 	else:
-		session['_id'] = session.create_session()
+		session['_id'] = sessions.create_session()
 	return redirect(url_for('classinfo'))
 
 @app.route("/course_not_found")
