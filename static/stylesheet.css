@@ -4,6 +4,7 @@ body {
 table{
 	margin: 0 auto;
 	margin-top: 20px;
+	table-layout: fixed;
 }
 th {
 	background-color: #fa4251;
@@ -38,6 +39,14 @@ tr{
 .timetableHour:hover {
 	background-color: #ffebed;
 	color: #fa4251;
+}
+
+.activePeriod{
+    background-color: #ff848e;
+    color: #FFF;
+    border-radius: 5%;
+    word-wrap: break-word;
+
 }
 
 /* Add a black background color to the top navigation */
