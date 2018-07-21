@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect, url_for, session
+from flask import Flask, render_template, flash, redirect, url_for
 import coursesDAO, crawlDAO, sessionDAO
 from db.secret import secretkey, appsecret
 import pymongo, random
@@ -8,10 +8,6 @@ app.secret_key = appsecret
 
 @app.route('/')
 def index():
-	if "_id" in session:
-		pass
-	else:
-		session['_id'] = sessions.create_session()
 	return redirect(url_for('classinfo'))
 
 @app.route("/course_not_found")
@@ -22,6 +18,7 @@ def course_not_found():
 @app.route('/classinfo')
 @app.route('/classinfo/<permalink>')
 def classinfo(permalink=None):
+	usesh = sessions.checksession()
 	if permalink == None: permalink = randomKey()
 	print ("about to query on permalink = ", permalink)
 	course = courses.get_course_by_permalink(permalink)
@@ -40,6 +37,7 @@ def courselist():
 
 @app.route('/timetable')
 def timetable():
+	usesh = sessions.checksession()
 	return render_template("timeTable.html")
 
 @app.route('/about')
@@ -50,14 +48,12 @@ def about():
 def page_not_found(e):
 	return render_template('404.html')
 
-
 def randomKey():
 	keys = [d["_id"] for d in courses.get_courses()]
 	return random.choice(keys)
-
 
 client = pymongo.MongoClient(secretkey)
 db = client.sils
 courses = coursesDAO.CoursesDAO(db)
 crawler = crawlDAO.CrawlDAO(db)
-sessions = sessionDAO.SessionDAO(db)
+sessions = sessionDAO.SessionDAO(db=db, app=app)

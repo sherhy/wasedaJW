@@ -24,6 +24,11 @@ tr{
 .page-container{
 	margin: auto 10%;
 }
+.scrollTop{
+	position: fixed;
+	right: 15px;
+	bottom: 50px;
+}
 
 .semesterInfo{
 	margin: 1% 10%;
