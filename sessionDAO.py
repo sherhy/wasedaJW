@@ -26,7 +26,7 @@ class SessionDAO():
 
 	def checkSession(self):
 		sid = request.cookies.get(self.app.session_cookie_name)
-		if not sid: sid = str(uuid4())
+		if not sid: sid = str(uuid.uuid4())
 		if "_id" in session:
 			usesh = self.find_session(sid)
 			if usesh: 
