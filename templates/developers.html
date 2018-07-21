@@ -1,10 +1,24 @@
 {% extends "layout.html" %}
-{% block title %}Index{% endblock %}
+{% block title %}About Page{% endblock %}
 {% block head %}{{ super() }}{% endblock %}
 {% block content %}
 <div class="page-container">			
+	<h2>What is WasedaJW</h2>
+	<p>WasedaJW or WasedaJikanWari is the unofficial timetable planning application for Waseda University. (In Japanese, WasedaJikanWari means Waseda Timetable) Search and start adding courses to your own timetable today!</p>
+
+	<h2>Why we started</h2>
+	<p>Waseda University has no timetable planning application that students can use. This means that every semester, students would have to carry out this task in less efficient ways. Building this application would free students (and us) of having to jump through several hoops just to get a working timetable. </p>
+
+	<h2>What we hope to achieve</h2>
+	<p>Our main objective is to improve the quality of student life for Waseda University students. Therefore, starting with a timetable builder, we strive to identify and work on areas in which students' lives may be made more convenient or simpler.</p>
+	<p>On the side, because this project is run by students for students, we also hope to encourage more initiatives that serve a social purpose in the Waseda community. </p>
+
+	<h2>We need you!</h2>
+	<p>WasedaJW is just the beginning of many projects that serves to make life easier. Any feedback or contribution is welcome. Help us bring this dream to light! </p>
+
+	<p>link to our email: waseda.jw@gmail.com</p>
 	<div>
-		<h2>Bought to you by {% for creator in creators %} {{ creator }}{% endfor %}!</h2>
+		<h3>Bought to you by {% for creator in creators %} {{ creator }}{% endfor %}</h3>
 	</div>
 	<div>
 		<br><br><br><br><br><br><br><br>

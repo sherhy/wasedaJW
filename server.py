@@ -14,7 +14,7 @@ def robots():
 @app.route('/')
 @app.route('/index')
 def index():
-	return redirect(url_for('classinfo',permalink=None))
+	return redirect(url_for('timetable'))
 
 @app.route('/classinfo')
 @app.route('/classinfo/<permalink>')
@@ -28,23 +28,25 @@ def classinfo(permalink=None):
 	return render_template('classInfoPage.html', course=course)
 
 @app.route("/classinfo/addtoTimetable", methods=['POST'])
-@app.route("/addtoTimetable", methods=['POST'])
 def addtoTimetable():
 	usesh = sessions.checkSession()
 	key = request.args.get("key")
 	title = request.args.get("title")
 	period = request.args.get("period")
 	# print(f"got {title}")
-	sessions.addCourse(key=key,title=title, period=period, doc=usesh)
+	res = sessions.addCourse(key=key,title=title, period=period, doc=usesh)
+	print(res)
 	return "course added"
 
 @app.route('/timetable')
 def timetable():
 	usesh = sessions.checkSession()
+	print(usesh)
 	try:
 		cl = courses.get_selectedCourses(usesh['timetable'])
 	except:
 		cl = []
+	print(cl)
 	return render_template("timeTable.html", courselist=cl)
 
 # @app.route('/export', methods=['POST'])
