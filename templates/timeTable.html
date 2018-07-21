@@ -91,32 +91,51 @@
 			</tr>
 		</table>
 		<div id="courselist">
-			<p style="right:300px; padding:30px"><button id="export">Export schedule</button></p>
+			<p style="right:300px; padding:30px"><a type="button" id="export" href="/export" download>Export schedule</a></p>
 			<h4>Courses: </h4>
-			{%- for i in range(sesh.timetable|length) -%}
-				<p id="{{"course"+i|string}}">{{sesh.timetable[i].title}} : </p><p id="{{"period"+i|string}}">{{sesh.timetable[i].period}}</p>
+			{%- for i in range(courselist|length) -%}
+				<p style="display: inline;" id="{{"course"+i|string}}">{{courselist[i].title}}</p><p style="display: inline;"> : </p><p id="{{"code"+i|string}}" style="display: inline;">{{courselist[i].courseCode}}</p><p style="display: inline;"> : </p><p style="display: inline;"id="{{"period"+i|string}}">{{' '.join(courselist[i].period)}}</p><br>
 			{%- endfor -%}
 		</div>
-		<p id="classN" style="color:white">{{sesh.timetable|length}}</p>
+		<p id="classN" style="color:white">{{courselist|length}}</p>
 	</div>
 </div>
 {% endblock %}
 {% block script %}
 <script type="text/javascript">
-	var n = parseInt(document.getElementById("classN").innerHTML);
-	// console.log(document.getElementById("course0"))
+// function exportsched() {
+// 	var n = parseInt(document.getElementById("classN").innerHTML);
+// 	var cl = [];
+// 	var code, title, period;
+// 	for (var i = 0; i < n; i++) {
+// 		code = document.getElementById("code"+i.toString()).innerHTML;
+// 		title = document.getElementById("course"+i.toString()).innerHTML;
+// 		period = document.getElementById("period"+i.toString()).innerHTML;
+// 		cl.push({
+// 			"code":code,
+// 			"title":title,
+// 			"period":period
+// 		});
+// 	}
+// 	var res = JSON.stringify(cl);
+// 	$.post("export?json="+res);
+// 	return 0;
+// }
 
-	for (var i = 0; i < n; i++) {
-		var periods = document.getElementById("period"+i.toString()).innerHTML;
-		var periodsList = periods.split(" ");
-		for (var j = 0; j < periodsList.length; j++) {
-			var day = periodsList[j].slice(0,3);
-			var separated = periodsList[j].split(".");
-			var formattedPeriod = day + separated[1].toString();
-			var courseTitle = document.getElementById("course"+i.toString()).innerHTML;
-			document.getElementById(formattedPeriod).classList.add("activePeriod");
-			document.getElementById(formattedPeriod).innerHTML= courseTitle;
-		}
+var periods, periodsList, day, separated, formattedPeriod, courseTitle;
+var m = parseInt(document.getElementById("classN").innerHTML);
+
+for (var i = 0; i < m; i++) {
+	periods = document.getElementById("period"+i.toString()).innerHTML;
+	periodsList = periods.split(" ");
+	for (var j = 0; j < periodsList.length; j++) {
+		day = periodsList[j].slice(0,3);
+		separated = periodsList[j].split(".");
+		formattedPeriod = day + separated[1].toString();
+		courseTitle = document.getElementById("course"+i.toString()).innerHTML;
+		document.getElementById(formattedPeriod).classList.add("activePeriod");
+		document.getElementById(formattedPeriod).innerHTML= courseTitle;
 	}
+}
 </script>
 {% endblock %}

@@ -6,33 +6,6 @@ class CoursesDAO:
 	def insert_entry(self, title, post):
 		#todo: make use of the crawlsyllabus.py file as a class object here
 		pass
-		# print "inserting blog entry", title, post
-
-		# # fix up the permalink to not include whitespace
-
-		# exp = re.compile('\W') # match anything not alphanumeric
-		# whitespace = re.compile('\s')
-		# temp_title = whitespace.sub("_",title)
-		# permalink = exp.sub('', temp_title)
-
-		# # Build a new post
-		# post = {"title": title,
-		# 		"author": author,
-		# 		"body": post,
-		# 		"permalink":permalink,
-		# 		"tags": tags_array,
-		# 		"comments": [],
-		# 		"date": datetime.datetime.utcnow()}
-
-		# # now insert the post
-		# try:
-		# 	print "Inserting the post"
-		# 	self.posts.insert_one(post)
-		# except:
-		# 	print "Error inserting post"
-		# 	print "Unexpected error:", sys.exc_info()[0]
-
-		# return permalink
 
 	def get_courses(self):
 		cursor = self.courses.find({},{"_id":1, "title":1})
@@ -40,6 +13,17 @@ class CoursesDAO:
 		for course in cursor:
 			l.append(course)
 		return l
+
+	def get_selectedCourses(self, idlist):
+		cl = []
+		for doc in idlist:
+			course = self.courses.find_one({"_id":doc["key"]},{
+				"title": 1,
+				"courseCode":1,
+				"period": 1
+			})
+			cl.append(course)
+		return cl
 
 	def get_course_by_permalink(self, permalink):
 		return self.courses.find_one({"_id":permalink})
