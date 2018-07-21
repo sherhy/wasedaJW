@@ -91,7 +91,7 @@
 			</tr>
 		</table>
 		<div id="courselist">
-			<p style="right:300px; padding:30px"><a type="button" id="export" href="/export" download>Export schedule</a></p>
+			<p style="right:300px; padding:30px"><a type="button" id="awesome_schedule" href="/awesome_schedule" download>Export schedule</a></p>
 			<h4>Courses: </h4>
 			{%- for i in range(courselist|length) -%}
 				<p style="display: inline;" id="{{"course"+i|string}}">{{courselist[i].title}}</p><p style="display: inline;"> : </p><p id="{{"code"+i|string}}" style="display: inline;">{{courselist[i].courseCode}}</p><p style="display: inline;"> : </p><p style="display: inline;"id="{{"period"+i|string}}">{{' '.join(courselist[i].period)}}</p><br>

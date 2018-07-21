@@ -21,7 +21,7 @@ def index():
 def classinfo(permalink=None):
 	usesh = sessions.checkSession()
 	if permalink == None: permalink = randomKey()
-	print ("about to query on permalink = ", permalink)
+	# print ("about to query on permalink = ", permalink)
 	course = courses.get_course_by_permalink(permalink)
 	if course is None:
 		return redirect(url_for("course_not_found"))
@@ -34,7 +34,7 @@ def addtoTimetable():
 	key = request.args.get("key")
 	title = request.args.get("title")
 	period = request.args.get("period")
-	print(f"got {title}")
+	# print(f"got {title}")
 	sessions.addCourse(key=key,title=title, period=period, doc=usesh)
 	return "course added"
 
@@ -62,7 +62,7 @@ def timetable():
 # 		print("not exported correctly")
 # 		return "failed"
 
-@app.route('/export')
+@app.route('/awesome_schedule')
 def export():
 	usesh = sessions.checkSession()
 	try:

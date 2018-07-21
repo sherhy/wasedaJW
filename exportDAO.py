@@ -9,7 +9,7 @@ class Pprint:
 		# self.tempMake()
 
 	def toTXT(self):
-		print(self.dicts)
+		# print(self.dicts)
 		try:
 			with open(f"db/timetable.txt", 'w') as f:
 				f.write('Saved Courses\n\n')

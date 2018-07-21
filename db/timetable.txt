@@ -1,15 +1,7 @@
 Saved Courses
 
-Course Title: Intermediate Seminar 31
-Course Code: GENX201S
-Period: Fri.3
-
-Course Title: Intensive English (Listening)  C
-Course Code: LANE103F
-Period: Thur.3
-
-Course Title: Intensive Spanish II  01
-Course Code: LANS302F
-Period: Mon.2 Tues.2 Thur.2 Fri.2
+Course Title: First Year Seminar IA 33
+Course Code: BSPX101S
+Period: Tues.3
 
 www.wasedajw.herokuapp.com
