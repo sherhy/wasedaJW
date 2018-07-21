@@ -2,4 +2,4 @@
 *.pyc
 test*
 db/bin/
-db/sercret.py
+db/secret.py
