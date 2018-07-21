@@ -5,109 +5,117 @@
 <div class="page-container">
 	<div class="semesterInfo">
 		Current Semester: 
-		<span id="currentSemester"></span>
+	<span id="currentSemester"></span>
 	</div>
-	<div class="row">
-		<span class="timetable col-md-6">
-			<table>
-				<tr>
-					<th></th>
-					<th colspan="2"> 1</th>
-					<th colspan="2"> 2</th>
-					<th colspan="2"> 3</th>
-					<th colspan="2"> 4</th>
-					<th colspan="2"> 5</th>
-					<th colspan="2"> 6</th>
-					<th colspan="2"> 7</th>
-				</tr>
-				<tr id="time">
-					<td></td>
-					<td>0900</td>
-					<td>1030</td>
-					<td>1040</td>
-					<td>1210</td>
-					<td>1300</td>
-					<td>1430</td>
-					<td>1445</td>
-					<td>1615</td>
-					<td>1630</td>
-					<td>1800</td>
-					<td>1815</td>
-					<td>1945</td>
-					<td>1955</td>
-					<td>2125</td>
-				</tr>
-				<tr>
-					<td class="timetableDay">Mon</td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-				</tr>
-				<tr>
-					<td class="timetableDay">Tue</td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-				</tr>
-				<tr>
-					<td class="timetableDay">Wed</td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-				</tr>
-				<tr>
-					<td class="timetableDay">Thur</td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-				</tr>
-				<tr>
-					<td class="timetableDay">Fri</td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-				</tr>
-				<tr>
-					<td class="timetableDay">Sat</td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-					<td class="timetableHour" colspan="2"></td>
-				</tr>
-			</table>
-		</span>
-		<span class="col-md-2">
-			<ul>
-				Courses:
-				<li>
-				</li>
-			</ul>
-		</span>
-		<button id="export">Export schedule</button>
+		<table class="timetable">
+			<tr>
+				<th></th>
+				<th colspan="2"> 1</th>
+				<th colspan="2"> 2</th>
+				<th colspan="2"> 3</th>
+				<th colspan="2"> 4</th>
+				<th colspan="2"> 5</th>
+				<th colspan="2"> 6</th>
+				<th colspan="2"> 7</th>
+			</tr>
+			<tr id="time">
+				<td></td>
+				<td>0900</td><td>1030</td>
+				<td>1040</td><td>1210</td>
+				<td>1300</td><td>1430</td>
+				<td>1445</td><td>1615</td>
+				<td>1630</td><td>1800</td>
+				<td>1815</td><td>1945</td>
+				<td>1955</td><td>2125</td>
+			</tr>
+			<tr>
+				<td class="timetableDay">Mon</td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Mon1"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Mon2"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Mon3"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Mon4"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Mon5"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Mon6"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Mon7"></td>
+			</tr>
+			<tr>
+				<td class="timetableDay">Tue</td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Tue1"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Tue2"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Tue3"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Tue4"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Tue5"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Tue6"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Tue7"></td>
+			</tr>
+			<tr>
+				<td class="timetableDay">Wed</td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Wed1"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Wed2"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Wed3"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Wed4"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Wed5"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Wed6"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Wed7"></td>
+			</tr>
+			<tr>
+				<td class="timetableDay">Thur</td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Thu1"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Thu2"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Thu3"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Thu4"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Thu5"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Thu6"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Thu7"></td>
+			</tr>
+			<tr>
+				<td class="timetableDay">Fri</td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Fri1"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Fri2"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Fri3"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Fri4"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Fri5"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Fri6"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Fri7"></td>
+			</tr>
+			<tr>
+				<td class="timetableDay">Sat</td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Sat1"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Sat2"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Sat3"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Sat4"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Sat5"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Sat6"></td>
+				<td class="timetableHour" colspan="2" rowspan="1"id="Sat7"></td>
+			</tr>
+		</table>
+		<div id="courselist">
+			<p style="right:300px; padding:30px"><button id="export">Export schedule</button></p>
+			<h4>Courses: </h4>
+			{%- for i in range(sesh.timetable|length) -%}
+				<p id="{{"course"+i|string}}">{{sesh.timetable[i].title}} : </p><p id="{{"period"+i|string}}">{{sesh.timetable[i].period}}</p>
+			{%- endfor -%}
+		</div>
+		<p id="classN" style="color:white">{{sesh.timetable|length}}</p>
 	</div>
-
 </div>
+{% endblock %}
+{% block script %}
+<script type="text/javascript">
+	var n = parseInt(document.getElementById("classN").innerHTML);
+	// console.log(document.getElementById("course0"))
+
+	for (var i = 0; i < n; i++) {
+		var periods = document.getElementById("period"+i.toString()).innerHTML;
+		var periodsList = periods.split(" ");
+		for (var j = 0; j < periodsList.length; j++) {
+			var day = periodsList[j].slice(0,3);
+			var separated = periodsList[j].split(".");
+			var formattedPeriod = day + separated[1].toString();
+			var courseTitle = document.getElementById("course"+i.toString()).innerHTML;
+			document.getElementById(formattedPeriod).classList.add("activePeriod");
+			document.getElementById(formattedPeriod).innerHTML= courseTitle;
+		}
+	}
+</script>
 {% endblock %}

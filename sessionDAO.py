@@ -1,16 +1,35 @@
 from flask import request, session
-import random, string
+import random, string, uuid
 class SessionDAO():
 	def __init__(self, db, app):
 		self.db = db
 		self.sessions = db.sessions
 		self.app = app
 
+	def addCourse(self, key, period, title, doc):
+		#TODO: just get the key and pull data from the courses collection using "_id"
+		self.sessions.update_one(
+			{"_id":doc["_id"]
+		},{
+			'$addToSet':{'timetable': {
+				'title':title,
+				'key':key,
+				'period':period
+			}
+		}})
+		
+
 	def checksession(self):
 		sid = request.cookies.get(self.app.session_cookie_name)
+		if not sid: sid = str(uuid4())
 		if "_id" in session:
 			usesh = self.find_session(sid)
+			if usesh: 
+				return usesh
+			else:
+				usesh = self.create_session(sid)
 		else:
+			session["_id"] = sid
 			usesh = self.create_session(sid)
 		return usesh
 

@@ -27,8 +27,8 @@ tr{
 }
 .scrollTop{
 	position: fixed;
-	right: 15px;
-	bottom: 50px;
+	right: 60px;
+	bottom: 100px;
 }
 
 .semesterInfo{
@@ -36,10 +36,15 @@ tr{
 	font-size: 200%;
 }
 .timetable{
-	margin: auto 10%;
+	margin: auto 5%;
+	text-overflow: ellipsis;
+  overflow: hidden;
+  table-layout:fixed;
 }
 .timetableHour{
-	padding: 30px;
+	padding: 5px;
+	text-overflow: ellipsis;
+
 }
 .timetableHour:hover {
 	background-color: #ffebed;
@@ -47,10 +52,13 @@ tr{
 }
 
 .activePeriod{
-    background-color: #ff848e;
-    color: #FFF;
-    border-radius: 5%;
-    word-wrap: break-word;
+  background-color: #ff848e;
+  color: #FFF;
+  border-radius: 5%;
+  word-wrap: break-word;
+  overflow: hidden;
+  height: 20px;
+  width: 40px;
 
 }
 

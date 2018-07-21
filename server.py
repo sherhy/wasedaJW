@@ -1,4 +1,4 @@
-from flask import Flask, render_template, flash, redirect, url_for
+from flask import Flask, render_template, flash, redirect, url_for, request
 import coursesDAO, crawlDAO, sessionDAO
 from db.secret import secretkey, appsecret
 import pymongo, random
@@ -13,6 +13,18 @@ def index():
 @app.route("/course_not_found")
 def course_not_found():
 	return render_template('notFound.html')
+
+@app.route("/addtoTimetable", methods=['POST'])
+def addtoTimetable():
+	usesh = sessions.checksession()
+	key = request.args.get("key")
+	title = request.args.get("title")
+	period = request.args.get("period")
+
+
+	sessions.addCourse(key=key,title=title, period=period, doc=usesh)
+
+	return "course added"
 
 
 @app.route('/classinfo')
@@ -32,13 +44,13 @@ def classinfo(permalink=None):
 
 @app.route('/courselist')
 def courselist():
-	l = courses.get_courses()
-	return render_template("courseList.html", courses=l)
+	courselist = courses.get_courses()
+	return render_template("courseList.html", courses=courselist)
 
 @app.route('/timetable')
 def timetable():
 	usesh = sessions.checksession()
-	return render_template("timeTable.html")
+	return render_template("timeTable.html", sesh=usesh)
 
 @app.route('/about')
 def about():
