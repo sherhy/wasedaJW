@@ -1,5 +1,6 @@
 from flask import request, session
 import random, string, uuid
+
 class SessionDAO():
 	def __init__(self, db, app):
 		self.db = db
@@ -17,9 +18,13 @@ class SessionDAO():
 				'period':period
 			}
 		}})
-		
+	
+	def dropSession(self):
+		usesh = self.checkSession()
+		self.sessions.delete_one({"_id": usesh["_id"]})
+		return None
 
-	def checksession(self):
+	def checkSession(self):
 		sid = request.cookies.get(self.app.session_cookie_name)
 		if not sid: sid = str(uuid4())
 		if "_id" in session:
