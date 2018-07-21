@@ -143,22 +143,19 @@ function add() {
 	document.getElementById("flashMessage").innerHTML ="<div class='alert alert-success alert-dismissible'> <strong>Success!</strong> You have added this course to your timetable</div>";
 
 }
-var addButton = document.getElementById("addButton");
-addButton.addEventListener("click",	add);
 
 var periodsHTML = document.getElementById("period");
 var periods = periodsHTML.innerHTML;
-var periodsList = periods.split(",");
+var periodsList = periods.split(" ");
 
 
 for (var i = 0; i < periodsList.length; i++) {
-	if ((periodsList[i][0] == "W") || (periodsList[i][0]) == "w") {
-		var separated = periodsList[i].split(".");
-		var formattedPeriod = "Wed"+ separated[1].toString();
-		var courseTitle = document.getElementById("courseTitle").innerHTML;
-		document.getElementById(formattedPeriod).classList.add("activePeriod");
-		document.getElementById(formattedPeriod).innerHTML= courseTitle;
-	}
+	var day = periodsList[i].slice(0,3);
+	var separated = periodsList[i].split(".");
+	var formattedPeriod = day + separated[1].toString();
+	var courseTitle = document.getElementById("courseTitle").innerHTML;
+	document.getElementById(formattedPeriod).classList.add("activePeriod");
+	document.getElementById(formattedPeriod).innerHTML= courseTitle;
 }
 
 </script>
