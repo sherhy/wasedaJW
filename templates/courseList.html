@@ -4,8 +4,36 @@
 {% block content %}
 <div class="page-container">
 	<h1>Course Title: </h1>
-	<h4>{% for course in courses%}
-		<a href="/classinfo/{{course["_id"]}}">{{course["title"]}} </a><br>
-	{% endfor %}</h4>
+	<ul id="cl">{% for course in courses%}
+		<li><a href="/classinfo/{{course["_id"]}}">{{course["title"]}} </a></li>
+	{% endfor %}</ul>
 </div>
+{% endblock %}
+{% block script %}
+<script>
+/*https://www.w3schools.com/howto/howto_js_filter_lists.asp*/
+function filter() {
+  // Declare variables
+  var input, filt, ul, li, a, i;
+  input = document.getElementById('searchbar');
+  filt = input.value.toUpperCase();
+  ul = document.getElementById("cl");
+  li = ul.getElementsByTagName('li');
+
+  // Loop through all list items, and hide those who don't match the search query
+  for (i = 0; i < li.length; i++) {
+    a = li[i].getElementsByTagName("a")[0];
+    if (a.innerHTML.toUpperCase().indexOf(filt) > -1) {
+      li[i].style.display = "";
+    } else {
+      li[i].style.display = "none";
+    }
+  }
+}
+
+if (document.getElementById('searchbar').placeholder!="Search..."){
+	document.getElementById('searchbar').value=document.getElementById('searchbar').placeholder;
+	filter();
+}
+</script>
 {% endblock %}

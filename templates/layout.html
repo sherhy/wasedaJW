@@ -16,7 +16,12 @@
 			<a href="/timetable">Timetable</a>
 			<a href="/courselist">Courses</a>
 			<a href="/about">Developers' Info</a>
-			<input type="text" placeholder="Search..">
+			<input type="text" id="searchbar" onkeyup="filter()" placeholder=
+			{% if q %}
+				{{q}}
+			{% else %}
+				"Search..."
+			{% endif %}>
 		</div>
 		<div class="scrollTop">
 			<button> <a href="#topbar">Top</a></button>
@@ -27,4 +32,14 @@
 		<div class="footer" style="left: 0;bottom: 0;">&copy; Copyright 2018 by WasedaJW.</div>
 		
 	</body>
+	<script type="text/javascript">
+		function filter() {
+			return null
+		}
+		$("#searchbar").on('keyup', function (e) {
+    if (e.keyCode == 13) {
+      window.location.href = "/search/"+document.getElementById("searchbar").value;
+    }
+});
+	</script>
 	{% block script %}{% endblock %}

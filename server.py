@@ -27,6 +27,15 @@ def classinfo(permalink=None):
 		return redirect(url_for("course_not_found"))
 	return render_template('classInfoPage.html', course=course)
 
+@app.route("/search/<query>")
+def search(query=None):
+	if query == None:
+		return redirect(url_for('courselist'))
+	else:
+		courselist = courses.get_courses()
+		return render_template('courseList.html',courses=courselist, q=query)
+	
+
 @app.route("/classinfo/addtoTimetable", methods=['POST'])
 def addtoTimetable():
 	usesh = sessions.checkSession()
@@ -35,7 +44,7 @@ def addtoTimetable():
 	period = request.args.get("period")
 	# print(f"got {title}")
 	res = sessions.addCourse(key=key,title=title, period=period, doc=usesh)
-	print(res)
+	# print(res)
 	return "course added"
 
 @app.route('/timetable')
@@ -71,7 +80,7 @@ def export():
 		cl = courses.get_selectedCourses(usesh['timetable'])
 	except:
 		cl = []
-	exports = exportDAO.Pprint(listofDict=cl,uid=usesh["_id"])
+	exports = exportDAO.Pprint(listofDict=cl, uid=usesh["_id"])
 	# exports.tempContent()
 	exports.toTXT()
 	try:
@@ -105,6 +114,8 @@ def page_not_found(e):
 @app.route("/course_not_found")
 def course_not_found():
 	return render_template('notFound.html')
+
+
 
 def randomKey():
 	keys = [d["_id"] for d in courses.get_courses()]

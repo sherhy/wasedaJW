@@ -25,18 +25,23 @@ class SessionDAO():
 		return None
 
 	def checkSession(self):
-		# if not sid: sid = str(uuid.uuid4())
-		if "_id" in session:
-			sid = session["_id"]
-			usesh = self.find_session(sid)
-			if usesh: 
-				return usesh
+		sid = request.cookies.get(self.app.session_cookie_name)
+		if sid:
+			if "_id" in session:
+				sid = session["_id"]
+				usesh = self.find_session(sid)
+				if usesh: 
+					return usesh
+				else:
+					flash("Search and add courses to your timetable!")
+					usesh = self.create_session(sid)
 			else:
 				flash("Search and add courses to your timetable!")
+				session["_id"] = sid
 				usesh = self.create_session(sid)
 		else:
-			sid = request.cookies.get(self.app.session_cookie_name)
 			flash("Search and add courses to your timetable!")
+			sid = str(uuid.uuid4())
 			session["_id"] = sid
 			usesh = self.create_session(sid)
 		return usesh

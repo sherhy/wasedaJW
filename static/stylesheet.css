@@ -18,6 +18,28 @@ th, td {
 tr{
 	border-left: 1px solid #ddd;
 }
+
+/*https://www.w3schools.com/howto/howto_js_filter_lists.asp*/
+#cl {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+#cl li a {
+	border: 1px solid #ddd; /* Add a border to all links */
+	margin-top: -1px; /* Prevent double borders */
+	background-color: #f6f6f6; /* Grey background color */
+	padding: 12px; /* Add some padding */
+	text-decoration: none; /* Remove default text underline */
+	font-size: 18px; /* Increase the font-size */
+	color: black; /* Add a black text color */
+	display: block; /* Make it into a block element to fill the whole list */
+}
+#cl li a:hover:not(.header) {
+	background-color: #eee; /* Add a hover effect to all links, except for headers */
+}
+/*until here*/
+
 .main {
 	margin-bottom: 15px;
 }
@@ -38,8 +60,8 @@ tr{
 .timetable{
 	margin: auto 5%;
 	text-overflow: ellipsis;
-  overflow: hidden;
-  table-layout:fixed;
+	overflow: hidden;
+	table-layout:fixed;
 }
 .timetableHour{
 	padding: 5px;
@@ -52,13 +74,13 @@ tr{
 }
 
 .activePeriod{
-  background-color: #ff848e;
-  color: #FFF;
-  border-radius: 5%;
-  word-wrap: break-word;
-  overflow: hidden;
-  height: 20px;
-  width: 40px;
+	background-color: #ff848e;
+	color: #FFF;
+	border-radius: 5%;
+	word-wrap: break-word;
+	overflow: hidden;
+	height: 20px;
+	width: 40px;
 
 }
 
@@ -113,3 +135,4 @@ tr{
 		border: 1px solid #ccc;
 	}
 }
+
